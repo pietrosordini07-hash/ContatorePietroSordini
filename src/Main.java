@@ -5,11 +5,13 @@ class Main {
     public static void main(String[] args) {
         Contatore counter = new Contatore();
 
+        SynchronizedBlockExample example = new SynchronizedBlockExample();
+
         // Create multiple threads to increment the counter
         Thread t1 = new Thread(() -> counter.incrementoSny());
         Thread t2 = new Thread(() -> counter.incrementoSny());
-        Thread t3 = new Thread(() -> counter.incremento());
-        Thread t4 = new Thread(() -> counter.incremento());
+        Thread t3 = new Thread(() -> example.increment());
+        Thread t4 = new Thread(() -> example.increment());
 
         t1.start();
         t2.start();
