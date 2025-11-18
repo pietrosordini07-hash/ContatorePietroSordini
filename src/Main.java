@@ -3,15 +3,17 @@
 
 class Main {
     public static void main(String[] args) {
-        Contatore counter = new Contatore();
+
+
+        Contatore contatore = new Contatore();
 
         SynchronizedBlockExample example = new SynchronizedBlockExample();
 
         // Create multiple threads to increment the counter
-        Thread t1 = new Thread(() -> counter.incrementoSny());
-        Thread t2 = new Thread(() -> counter.incrementoSny());
-        Thread t3 = new Thread(() -> example.increment());
-        Thread t4 = new Thread(() -> example.increment());
+        Thread t1 = new Thread(() -> contatore.increment());
+        Thread t2 = new Thread(() -> contatore.increment());
+        Thread t3 = new Thread(() -> example.incrementSny());
+        Thread t4 = new Thread(() -> example.incrementSny());
 
         t1.start();
         t2.start();
@@ -31,7 +33,10 @@ class Main {
             e.printStackTrace();
         }
 
-        System.out.println("Final count: " + counter.getCount());
+
+        System.out.println("Final count: " + contatore.getCount());
+        System.out.println("Final count: " + example.getCountSny());
+
     }
 
 }

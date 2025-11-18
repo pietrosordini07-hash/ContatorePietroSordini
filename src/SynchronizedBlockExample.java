@@ -2,13 +2,18 @@ public class SynchronizedBlockExample {
     private final Object lock = new Object();
     private int count = 0;
 
-    public void increment() {
+    public void incrementSny() {
+        int j = 0;
         synchronized (lock) {
-            count++;
+            while(j < 5000) {
+                count++;
+                j++;
+            }
+
         }
     }
 
-    public int getCount() {
+    public int getCountSny() {
         return count;
     }
 }
